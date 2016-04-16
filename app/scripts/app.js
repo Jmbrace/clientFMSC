@@ -29,6 +29,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/buy', {
+        templateUrl: 'scripts/buy/buy.html',
+        controller: 'BuyCtrl',
+        controllerAs: 'buy'
+      })
       .when('/login', {
         templateUrl: 'scripts/registerAndLogin/login.html',
         controller: 'registerAndLoginCtrl',
