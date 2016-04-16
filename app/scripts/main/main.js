@@ -8,11 +8,13 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('MainCtrl', function () {
+  .controller('MainCtrl', ['authService' , '$rootScope', function (authService, $rootScope) {
 
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+
+    $rootScope.isLoggedIn = authService.loggedIn;
+  }]);

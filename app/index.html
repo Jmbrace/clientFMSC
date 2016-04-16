@@ -9,7 +9,6 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link href="//cdn.rawgit.com/cornflourblue/angular-registration-login-example/master/app-content/app.css" rel="stylesheet" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -21,6 +20,16 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+<script>
+var isLoggedIn = function(){
+    if(window.localStorage['authToken']){
+      return true;
+    }
+    else{
+      return false;
+    }
+}
+</script>
     <!-- Add your site or application content here -->
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
@@ -41,8 +50,12 @@
 
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
+              <li ><a ng-href="#/about">About</a></li>
+              <li ><a ng-href="#/">Contact</a></li>
+              <li ng-hide = "isLoggedIn()"><a ng-href="#/login">Login</a></li>
+              <li ng-hide = "isLoggedIn()"><a ng-href="#/register">Sign up</a></li>
+              <li ng-show = "isLoggedIn()"><a ng-href="#/logout">Logout</a></li>
+              <li ng-show = "isLoggedIn()"><a ng-href="#/profile">Profile</a></li>
             </ul>
           </div>
         </div>
@@ -92,6 +105,8 @@
         <script src="scripts/baseServices/apiService.js"></script>
         <script src="scripts/baseServices/authService.js"></script>
         <script src="scripts/registerAndLogin/registerAndLoginCtrl.js"></script>
+        <script src="scripts/registerAndLogin/logoutCtrl.js"></script>
+        <script src="scripts/profile/profileCtrl.js"></script>
         <!-- endbuild -->
 </body>
 </html>

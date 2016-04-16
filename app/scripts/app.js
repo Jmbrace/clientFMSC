@@ -39,6 +39,16 @@ angular
         controller: 'registerAndLoginCtrl',
         controllerAs: 'regNLog'
       })
+      .when('/logout', {
+        template: " ",
+        controller: 'logoutCtrl',
+        controllerAs: 'logoutCtrl'
+      })
+      .when('/profile', {
+        templateUrl: "scripts/profile/profile.html",
+        controller: 'profileCtrl',
+        controllerAs: 'profileCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });

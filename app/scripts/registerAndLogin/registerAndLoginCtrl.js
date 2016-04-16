@@ -1,10 +1,10 @@
 angular.module('clientApp')
-  .controller('registerAndLoginCtrl', ['authService', function (authService) {
+  .controller('registerAndLoginCtrl', ['authService',  function (authService) {
   	this.password = "";
   	this.passwordConfirmation = "";
   	this.email = "";
     this.firstName = "";
-    this.lastName = "";
+    this.about = "";
   	this.data = {"loading": false};
 
     this.login = function(){
@@ -23,9 +23,11 @@ angular.module('clientApp')
     		"user": {
     			"email": this.email,
     			"password": this.password,
-    			"password_confirmation": this.password_confirmation
+    			"password_confirmation": this.password_confirmation,
+          "about": this.about,
+          "name": this.firstName
     		}
     	}
     	authService.signUp(payload, this.data);
     }
-  }]);
+}]);
