@@ -31,8 +31,8 @@ angular
       })
       .when('/buy', {
         templateUrl: 'scripts/buy/buy.html',
-        controller: 'BuyCtrl',
-        controllerAs: 'buy'
+        controller: 'buyCtrl',
+        controllerAs: 'buyCtrl'
       })
       .when('/login', {
         templateUrl: 'scripts/registerAndLogin/login.html',

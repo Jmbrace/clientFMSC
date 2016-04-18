@@ -8,11 +8,6 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('BuyCtrl', function () {
+  .controller('buyCtrl', ['apiService', function (apiService) {
 
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  }]);
