@@ -54,6 +54,11 @@ angular
         controller: 'profileCtrl',
         controllerAs: 'profileCtrl',
       })
+      .when('/confirmation', {
+        templateUrl: "scripts/confirmationPage/paymentConfirmation.html",
+        controller: 'paymentConfirmationCtrl',
+        controllerAs: 'paymentConfirmationCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });
