@@ -51,7 +51,7 @@ var isLoggedIn = function(){
             <ul class="nav navbar-nav">
               <li class="active"><a href="#/">Home</a></li>
               <li ><a ng-href="#/about">About</a></li>
-              <li ><a ng-href="#/">Contact</a></li>
+              <li ><a ng-href="#/contact">Contact</a></li>
               <li ng-hide = "isLoggedIn()"><a ng-href="#/login">Login</a></li>
               <li ng-hide = "isLoggedIn()"><a ng-href="#/register">Sign up</a></li>
               <li ng-show = "isLoggedIn()"><a ng-href="#/logout">Logout</a></li>
@@ -110,6 +110,7 @@ var isLoggedIn = function(){
         <script src="scripts/profile/profileCtrl.js"></script>
         <script src="scripts/buy/buyCtrl.js"></script>
         <script src="scripts/confirmationPage/paymentConfirmationCtrl.js"></script>
+        <script src="scripts/contact/contactCtrl.js"></script>
         <!-- endbuild -->
 </body>
 </html>

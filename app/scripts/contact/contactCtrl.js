@@ -1,0 +1,3 @@
+angular.module('clientApp').controller('contactCtrl', ['apiService', function (apiService) {
+    // ...
+}]);

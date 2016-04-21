@@ -60,6 +60,11 @@ angular
         controller: 'paymentConfirmationCtrl',
         controllerAs: 'paymentConfirmationCtrl',
       })
+      .when('/contact', {
+          templateUrl: "scripts/contact/contact.html",
+          controller: 'contactCtrl',
+          controllerAs: 'contactCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });
