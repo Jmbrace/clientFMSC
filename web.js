@@ -8,3 +8,7 @@ var gzippo = require('gzippo');
   app.get('/', function(req, res) {
     res.sendfile('index.html', {root: __dirname })
 });
+
+  app.get('/index', function (req, res){
+    res.sendfile('index.html', {root: __dirname })
+});
