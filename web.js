@@ -78,6 +78,10 @@ app.get('/scripts/baseServices/apiService.js', function (req, res){
     res.sendfile('/app/scripts/baseServices/apiService.js', {root: __dirname})
 });
 
+app.get('/scripts/baseServices/authService.js', function (req, res){
+    res.sendfile('/app/scripts/baseServices/authService.js', {root: __dirname})
+});
+
 app.get('/scripts/confirmationPage/paymentConfirmationCtrl.js', function (req, res){
     res.sendfile('/app/scripts/confirmationPage/paymentConfirmationCtrl.js', {root: __dirname})
 });
@@ -88,6 +92,22 @@ app.get('/scripts/buy/buyCtrl.js', function (req, res){
 
 app.get('/scripts/contact/contactCtrl.js', function (req, res){
     res.sendfile('/app/scripts/contact/contactCtrl.js', {root: __dirname})
+});
+
+app.get('/scripts/registerAndLogin/registerAndLoginCtrl.js', function (req, res){
+    res.sendfile('/app/scripts/registerAndLogin/registerAndLoginCtrl.js', {root: __dirname})
+});
+
+app.get('/scripts/registerAndLogin/logoutCtrl.js', function (req, res){
+    res.sendfile('/app/scripts/registerAndLogin/logoutCtrl.js', {root: __dirname})
+});
+
+app.get('/scripts/profile/profileCtrl.js', function (req, res){
+    res.sendfile('/app/scripts/profile/profileCtrl.js', {root: __dirname})
+});
+
+app.get('/scripts/main/main.html', function (req, res){
+    res.sendfile('/app/scripts/main/main.html', {root: __dirname})
 });
 
 
