@@ -16,9 +16,16 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    '720kb.socialshare'
+    '720kb.socialshare',
+    'angularPayments'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $windowProvider) {
+
+    // angular payments: setup stripe
+    var $window = $windowProvider.$get();
+    $window.Stripe.setPublishableKey('pk_test_ZSnvkkGj3GgteQgdjKBypnGM');
+
+    // setup routes
     $routeProvider
       .when('/', {
         templateUrl: 'scripts/main/main.html',
