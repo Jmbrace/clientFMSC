@@ -34,6 +34,7 @@ module.exports = function(config) {
       'bower_components/angular-socialshare/dist/angular-socialshare.min.js',
       'bower_components/Chart.js/dist/Chart.js',
       'bower_components/angular-payments/lib/angular-payments.js',
+      'bower_components/ngGentle/ngGentle.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

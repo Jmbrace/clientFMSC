@@ -12,7 +12,8 @@
     "angular-touch": "^1.4.0",
     "angular-socialshare": "angularjs-socialshare#^2.1.2",
     "Chart.js": "^2.0.2",
-    "angular-payments": "2472bc9befa25678"
+    "angular-payments": "2472bc9befa25678",
+    "ngGentle": "0.0.1"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

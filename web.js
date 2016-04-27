@@ -66,6 +66,10 @@
 	    res.sendfile('/bower_components/Chart.js/dist/Chart.js', {root: __dirname})
 	});
 
+	app.get('/bower_components/ngGentle/ngGentle.js', function (req, res){
+	    res.sendfile('/bower_components/ngGentle/ngGentle.js', {root: __dirname})
+	});
+
 	app.get('/scripts/about/about.js', function (req, res){
 	    res.sendfile('/app/scripts/about/about.js', {root: __dirname})
 	});

@@ -16,6 +16,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'ngGentle',
     '720kb.socialshare',
     'angularPayments'
   ])

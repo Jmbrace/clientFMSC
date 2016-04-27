@@ -22,7 +22,12 @@
     </div>
     <div class="form-group">
       <label class="control-label">Donation Message</label>
-      <textarea class="form-control" name="txt_msg" rows="3"></textarea>
+      <textarea ng-model="txt" class="form-control" name="txt_msg" rows="3"></textarea>
+      
+      <label>No bad Words!</label>
+      <span class="help-block"> 
+        <Gentle ng-model="txt"></Gentle>
+      </span>
     </div>
     <div class="form-group">
       <label for="txt_name" class="control-label">Name</label>
@@ -45,7 +50,7 @@
       <input class="form-control" ng-model="cvc"/>
     </div>
     <div class="form-group">
-       <button type="submit" class="btn btn-default">Submit</button>
+       <button type="submit" class="btn btn-default" ng-disabled="isNotgentle">Submit</button>
     </div>
 	</form>
 </div>
