@@ -61,6 +61,27 @@
     background-color: #ECEFF1;    
   }
 
+  /* for mouse hover hover message effect */
+  .imageHolder {
+      text-decoration:none; 
+      position:relative;
+  }
+  .imageHolder span {
+    display:none;
+  }
+  .imageHolder:hover span {
+      display:block;
+      position:fixed;
+  }
+  
+  #tooltip-span {
+      border: 10px solid #263238;
+      font-size: 2em;
+      border-radius: 5px;
+      background-color:#263238;
+      color: white;
+  }
+          
 </style>
 
 <div class="jumbotron">
@@ -73,7 +94,16 @@
     </button> </a>
 </div>
 
-  <img class="theImage" src="images/FMSCCollage.jpeg" alt="the image"><br>
+<div class="imageHolder" id="imagehold">
+  <img class="theImage" id="theimage" src="https://s3-us-west-2.amazonaws.com/fmsc4262016/current.png" alt="the image"><br>
+    <span id="tooltip-span">
+        <div id="message">
+            message
+        </div>
+    </span>
+</div>
+
+  <!-- <img class="theImage" src="https://s3-us-west-2.amazonaws.com/fmsc4262016/current.png" alt="the image"><br> -->
 
 <!-- statistics -->
 <div class="jumbotron">
@@ -98,7 +128,43 @@
 
 </div>
 
+<script type="text/javascript">
+   // for mouse over image message
+  var tooltipSpan = document.getElementById('tooltip-span');
+  var message = document.getElementById('message');
+  var windowWidth = window.innerWidth;
+
+  var divPos = {};
+  var offset = $("#imagehold").offset();
+  $(document).mousemove(function(e) {
+
+    var x = e.clientX - $('.imageHolder').offset().left;
+    var y = e.clientY;
+
+    divPos = {
+        left: e.pageX - offset.left,
+        top: e.pageY - offset.top
+    };
+
+    if (x < (windowWidth / 2)) { 
+      tooltipSpan.style.left = (x + 60) + 'px';
+    }
+    else {
+      var divWidth = document.getElementById('tooltip-span').offsetWidth;
+      tooltipSpan.style.left = (x - divWidth + 40) + 'px';
+    }
+    
+    tooltipSpan.style.top = (y + 20) + 'px';
+    message.innerHTML = "x: " + divPos.left + " y: " + divPos.top;
+
+      console.log(divPos)
+  });
+</script>
+
 <script>
+ 
+
+// statistics
       var progressBarData = {
           labels: ["Progress"],
           datasets: [{
