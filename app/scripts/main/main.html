@@ -128,3 +128,46 @@
 
 </div>
 
+<script type="text/javascript">
+   // for mouse over image message
+  var tooltipSpan = document.getElementById('tooltip-span');
+  var message = document.getElementById('message');
+  var windowWidth = window.innerWidth;
+
+  var divPos = {};
+  var offset = $("#imagehold").offset();
+  $(document).mousemove(function(e) {
+
+    var x = e.clientX - $('.imageHolder').offset().left;
+    var y = e.clientY;
+
+    divPos = {
+        left: e.pageX - offset.left,
+        top: e.pageY - offset.top
+    };
+
+    if (x < (windowWidth / 2)) { 
+      tooltipSpan.style.left = (x + 60) + 'px';
+    }
+    else {
+      var divWidth = document.getElementById('tooltip-span').offsetWidth;
+      tooltipSpan.style.left = (x - divWidth + 40) + 'px';
+    }
+    
+    tooltipSpan.style.top = (y + 20) + 'px';
+    message.innerHTML = "x: " + divPos.left + " y: " + divPos.top;
+
+     // console.log(divPos)
+  });
+
+  $(document).ready(function(){
+    $(window).resize(function(){
+      offset = $("#imagehold").offset();
+      windowWidth = window.innerWidth;
+      divPos = {};
+      console.log("resize");
+    });
+  });
+
+</script>
+
