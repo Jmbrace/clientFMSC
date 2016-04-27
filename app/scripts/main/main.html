@@ -157,8 +157,18 @@
     tooltipSpan.style.top = (y + 20) + 'px';
     message.innerHTML = "x: " + divPos.left + " y: " + divPos.top;
 
-      console.log(divPos)
+     // console.log(divPos)
   });
+
+  $(document).ready(function(){
+    $(window).resize(function(){
+      offset = $("#imagehold").offset();
+      windowWidth = window.innerWidth;
+      divPos = {};
+      console.log("resize");
+    });
+  });
+
 </script>
 
 <script>
