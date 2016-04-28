@@ -17,6 +17,9 @@ angular.module('clientApp')
     $scope.message = "";
     $scope.badWord = false;
 
+    console.log(brnForm.payment_method_nonce.value);
+
+
     $scope.nsfwMessage =  function() {
         if (paragraph.isGentle($scope.message).length > 0) {
             $scope.badWord=true;

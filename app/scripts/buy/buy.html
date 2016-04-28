@@ -6,8 +6,7 @@
   }
 </style>
 
-
-<form id="checkout" method="post" action="/checkout">
+<form name="brnForm" id="checkout" method="post" action="/checkout">
   <div class="col-md-6 col-md-offset-3 well">
     <div class="form-group">
       <label for="numberMeals" class="control-label">Number of meals</label>
@@ -88,6 +87,7 @@
 
 <script src="https://js.braintreegateway.com/js/braintree-2.23.0.min.js"></script>
 <script>
+
 // We generated a client token for you so you can test out this code
 // immediately. In a production-ready integration, you will need to
 // generate a client token on your server (see section below).
