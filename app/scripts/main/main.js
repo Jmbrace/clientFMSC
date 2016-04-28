@@ -59,6 +59,13 @@ angular.module('clientApp')
 			windowWidth = window.innerWidth;
 			divPos = {};
 			scale = imageDiv.width() / 4000;
+
+			for (var i = messages.length - 1; i >= 0; i--) {
+				messages[i].x1 = Math.round(messages[i].origX * scale);
+				messages[i].y1 = Math.round(messages[i].origY * scale);
+				messages[i].x2 = Math.round((messages[i].origX + 16) * scale);
+				messages[i].y2 = Math.round((messages[i].origY + 16) * scale);
+			}
 		});
 	});
 
@@ -80,6 +87,8 @@ angular.module('clientApp')
  			console.log(obj.messages[i]);
 
  			var message = {
+ 				origX: obj.messages[i].x,
+ 				origY: obj.messages[i].y,
 			    x1: Math.round(obj.messages[i].x * scale),
 			    y1: Math.round(obj.messages[i].y * scale),
 			    x2: Math.round((obj.messages[i].x + 16) * scale), 
@@ -92,11 +101,7 @@ angular.module('clientApp')
 		}
 		console.log(messages);
 	}
-
 	setUpMessages();
-
-
-
 
     this.awesomeThings = [
       'HTML5 Boilerplate',
