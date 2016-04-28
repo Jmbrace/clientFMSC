@@ -147,3 +147,7 @@
 		app.get('/scripts/profile/profile.html', function (req, res){
 	    res.sendfile('/app/scripts/profile/profile.html', {root: __dirname})
 	});
+
+		app.get('/images/avatar.png', function (req, res){
+	    res.sendfile('/app/images/avatar.png', {root: __dirname})
+	});
