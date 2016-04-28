@@ -16,51 +16,95 @@
 <div class="col-md-6 col-md-offset-3 well">
   <legend>Donate</legend>
 	<form stripe-form="stripeCallback">
+    <div class="form-group">
+      <label for="inputName" class="control-label">Name / Alias</label>
+      <input ng-model="name" class="form-control" name="inputName" required>
+    </div>
 	  <div class="form-group">
-	    <label class="control-label" id="price">Number of meals (Price: $5.00)</label>
-      <input type="number" class="form-control" id="amount" min="20" id="amount" value="20" step="10">
-    </div>
-    <div class="form-group">
-      <label class="control-label">Donation Message</label>
-      <textarea ng-model="txt" class="form-control" name="txt_msg" rows="3"></textarea>
-      
-      <label>No bad Words!</label>
-      <span class="help-block"> 
-        <Gentle ng-model="txt"></Gentle>
-      </span>
-    </div>
-    <div class="form-group">
-      <label for="txt_name" class="control-label">Name</label>
-      <input class="form-control" ng-model="name"/>
+	    <label for="numberMeals" class="control-label">Number of meals</label>
+      <input ng-model="meals" type="number" class="form-control" min="20" value="20" step="20" required>
     </div>
     <div class="form-group">
       <label class="control-label">State</label>
-      <input class="form-control" ng-model="address_state"/>
+        <div class="input-group">
+        <select ng-model="state" name="state" class="form-control selectpicker">
+          <option value="">Select your state</option>
+          <option>Alabama</option>
+          <option>Alaska</option>
+          <option>Arizona</option>
+          <option>Arkansas</option>
+          <option>California</option>
+          <option>Colorado</option>
+          <option>Connecticut</option>
+          <option>Delaware</option>
+          <option>District of Columbia</option>
+          <option>Florida</option>
+          <option>Georgia</option>
+          <option>Hawaii</option>
+          <option>daho</option>
+          <option>Illinois</option>
+          <option>Indiana</option>
+          <option>Iowa</option>
+          <option>Kansas</option>
+          <option>Kentucky</option>
+          <option>Louisiana</option>
+          <option>Maine</option>
+          <option>Maryland</option>
+          <option>Mass</option>
+          <option>Michigan</option>
+          <option>Minnesota</option>
+          <option>Mississippi</option>
+          <option>Missouri</option>
+          <option>Montana</option>
+          <option>Nebraska</option>
+          <option>Nevada</option>
+          <option>New Hampshire</option>
+          <option>New Jersey</option>
+          <option>New Mexico</option>
+          <option>New York</option>
+          <option>North Carolina</option>
+          <option>North Dakota</option>
+          <option>Ohio</option>
+          <option>Oklahoma</option>
+          <option>Oregon</option>
+          <option>Pennsylvania</option>
+          <option>Rhode Island</option>
+          <option>South Carolina</option>
+          <option>South Dakota</option>
+          <option>Tennessee</option>
+          <option>Texas</option>
+          <option> Uttah</option>
+          <option>Vermont</option>
+          <option>Virginia</option>
+          <option>Washington</option>
+          <option>West Virginia</option>
+          <option>Wisconsin</option>
+          <option>Wyoming</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="donationMessage" class="control-label">Donation Message</label>
+      <textarea ng-model="message" ng-change="nsfwMessage()" class="form-control" name="txt_msg" rows="3" required></textarea>
+      <span ng-show="badWord" style="color:red">Naughty Word Detected!</span>
     </div>
     <div class="form-group">
       <label class="control-label">Card Number</label>
-      <input class="form-control" ng-model="number"/>
+      <input class="form-control" ng-model="number" required>
     </div>
     <div class="form-group">
       <label class="control-label">Expiration Month</label>
-      <input class="form-control" ng-model="expiry"/>
+      <input class="form-control" ng-model="expiry" required>
     </div>
     <div class="form-group">
       <label class="control-label">Security Code</label>
-      <input class="form-control" ng-model="cvc"/>
+      <input class="form-control" ng-model="cvc" required>
     </div>
     <div class="form-group">
-       <button type="submit" class="btn btn-default" ng-disabled="isNotgentle">Submit</button>
+       <button ng-disabled="badWord" type="submit" class="btn btn-default">Submit</button>
     </div>
 	</form>
 </div>
-
-<script type="text/javascript">
-  $( "#amount" ).change(function() {
-    var price = $('#amount').val() * 0.25;
-    $("#price").text("Number of meals (Price: $" + price.toFixed(2) + ")");
-  });
-</script>
 
 <!--
 <img class="theImage" src="images/FMSCCollage.jpeg" alt="the image"><br>

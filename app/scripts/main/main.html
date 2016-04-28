@@ -4,7 +4,7 @@
 
 <style>
   .page-header {
-    font-size: 200%;   
+    font-size: 200%;
   }
 
   /* Pattern styles */
@@ -48,7 +48,7 @@
   .theImage {
     max-width: 100%;
     max-height: 100%;
-    margin-bottom: 3%; 
+    margin-bottom: 3%;
   }
 
   .image_containter {
@@ -58,12 +58,12 @@
   }
 
   .statistics {
-    background-color: #ECEFF1;    
+    background-color: #ECEFF1;
   }
 
   /* for mouse hover hover message effect */
   .imageHolder {
-      text-decoration:none; 
+      text-decoration:none;
       position:relative;
   }
   .imageHolder span {
@@ -73,7 +73,7 @@
       display:block;
       position:fixed;
   }
-  
+
   #tooltip-span {
       border: 10px solid #263238;
       font-size: 2em;
@@ -81,7 +81,7 @@
       background-color:#263238;
       color: white;
   }
-          
+
 </style>
 
 <div class="jumbotron">
@@ -89,7 +89,10 @@
       <h1>The 1 Million Meal Project</h1>
       <h1><small>by the bruhgrammers</small></h1>
     </div>
-    <a href = "#/buy"><button type="button" id="donate" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+    <a href = "#/login" ng-hide="isLoggedIn()"><button type="button" id="donate" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+      Donate
+    </button> </a>
+    <a href = "#/buy" ng-show="isLoggedIn()"><button type="button" id="donate" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
       Donate
     </button> </a>
 </div>
@@ -110,7 +113,7 @@
     <h1>Statistics</h1>
 
     <h3>Percent of meals given</h3>
-    
+
       <div id="progress-bar-container"  style="display:inline-block;width: 33%">
         <canvas id="progress-bar" width="200" height="400"></canvas>
       </div>
@@ -121,13 +124,13 @@
 
       <div id="all-states-container"  style="display:inline-block;width: 33%">
         <canvas id="all-states-doughnut" width="200" height="400"></canvas>
-      </div>   
+      </div>
 </div>
 
 <div class="statistics"></div>
 
 <!-- for mouse over image message -->
-<script type="text/javascript">   
+<script type="text/javascript">
   var tooltipSpan = document.getElementById('tooltip-span');
   var message = document.getElementById('message');
   var windowWidth = window.innerWidth;
@@ -144,14 +147,14 @@
         top: e.pageY - offset.top
     };
 
-    if (x < (windowWidth / 2)) { 
+    if (x < (windowWidth / 2)) {
       tooltipSpan.style.left = (x + 60) + 'px';
     }
     else {
       var divWidth = document.getElementById('tooltip-span').offsetWidth;
       tooltipSpan.style.left = (x - divWidth + 40) + 'px';
     }
-    
+
     tooltipSpan.style.top = (y + 20) + 'px';
     message.innerHTML = "x: " + divPos.left + " y: " + divPos.top;
 
@@ -166,7 +169,6 @@
     });
   });
 
-  
+
 
 </script>
-
