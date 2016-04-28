@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('buyCtrl', ['apiService', '$scope', 'paragraph', function (apiService, $scope, paragraph) {
+  .controller('buyCtrl', ['apiService', '$scope', 'paragraph', '$window', function (apiService, $scope, paragraph, $window) {
 
     // init bound vars
     $scope.name = "";
@@ -32,7 +32,11 @@ angular.module('clientApp')
         if (result.error) {
             window.alert(result.error.message);
         } else {
-            window.alert(result.id);
+            // window.alert(result.id);
+
+            // KEEP THIS FOR ON VALID CALLBACK
+            var landingUrl = "http://" + $window.location.host + "/#/confirmation";
+            $window.location.href = landingUrl;
 
             var payload = {
               //
