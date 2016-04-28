@@ -48,7 +48,6 @@
   .theImage {
     max-width: 100%;
     max-height: 100%;
-    margin-bottom: 3%;
   }
 
   .image_containter {
@@ -76,12 +75,15 @@
 
   #tooltip-span {
       border: 10px solid #263238;
-      font-size: 2em;
+      /*font-size: 2em;*/
       border-radius: 5px;
       background-color:#263238;
       color: white;
   }
 
+  #stats {
+    margin-top: 3%;
+  }
 </style>
 
 <div class="jumbotron">
@@ -98,7 +100,10 @@
 </div>
 
 <div class="imageHolder" id="imagehold">
-  <img class="theImage" id="theimage" src="https://s3-us-west-2.amazonaws.com/fmsc4262016/current.png" alt="the image"><br>
+  <div id="imageDiv">
+  <img class="theImage" id="theimage" src="https://s3-us-west-2.amazonaws.com/fmsc4262016/current.png" alt="the image">
+
+  </div>
     <span id="tooltip-span">
         <div id="message">
             message
@@ -109,7 +114,7 @@
   <!-- <img class="theImage" src="https://s3-us-west-2.amazonaws.com/fmsc4262016/current.png" alt="the image"><br> -->
 
 <!-- statistics -->
-<div class="jumbotron">
+<div class="jumbotron" id="stats">
     <h1>Statistics</h1>
 
     <h3>Percent of meals given</h3>
@@ -131,44 +136,5 @@
 
 <!-- for mouse over image message -->
 <script type="text/javascript">
-  var tooltipSpan = document.getElementById('tooltip-span');
-  var message = document.getElementById('message');
-  var windowWidth = window.innerWidth;
-  var divPos = {};
-  var offset = $("#imagehold").offset();
-
-  $(document).mousemove(function(e) {
-
-    var x = e.clientX - $('.imageHolder').offset().left;
-    var y = e.clientY;
-
-    divPos = {
-        left: e.pageX - offset.left,
-        top: e.pageY - offset.top
-    };
-
-    if (x < (windowWidth / 2)) {
-      tooltipSpan.style.left = (x + 60) + 'px';
-    }
-    else {
-      var divWidth = document.getElementById('tooltip-span').offsetWidth;
-      tooltipSpan.style.left = (x - divWidth + 40) + 'px';
-    }
-
-    tooltipSpan.style.top = (y + 20) + 'px';
-    message.innerHTML = "x: " + divPos.left + " y: " + divPos.top;
-
-  });
-
-  $(document).ready(function(){
-    $(window).resize(function(){
-      offset = $("#imagehold").offset();
-      windowWidth = window.innerWidth;
-      divPos = {};
-      console.log("resize");
-    });
-  });
-
-
-
+  
 </script>

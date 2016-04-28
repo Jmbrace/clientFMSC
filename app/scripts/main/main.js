@@ -10,6 +10,99 @@
 angular.module('clientApp')
   .controller('MainCtrl', ['authService' , '$rootScope', function (authService, $rootScope) {
 
+  	var tooltipSpan = document.getElementById('tooltip-span');
+	var message = document.getElementById('message');
+	var windowWidth = window.innerWidth;
+	var divPos = {};
+	var offset = $("#imagehold").offset();
+
+	
+
+	$(document).mousemove(function(e) {
+		var x = e.clientX - $('.imageHolder').offset().left;
+		var y = e.clientY;
+
+		divPos = {
+			left: e.pageX - offset.left,
+			top: e.pageY - offset.top
+		};
+
+		if (x < (windowWidth / 2)) {
+			tooltipSpan.style.left = (x + 60) + 'px';
+		}
+		else {
+			var divWidth = document.getElementById('tooltip-span').offsetWidth;
+			tooltipSpan.style.left = (x - divWidth + 40) + 'px';
+		}
+
+		tooltipSpan.style.top = (y + 20) + 'px';
+
+		// get correct message
+		for (var i = messages.length - 1; i >= 0; i--) {
+			if (messages[i].x1 <= divPos.left && messages[i].x2 >= divPos.left &&
+				messages[i].y1 <= divPos.top && messages[i].y2 >= divPos.top) {
+				message.innerHTML = "<h4>" + messages[i].user + "</h4><p>" + messages[i].message + "</p>";
+				break;
+			}
+			else {
+				message.innerHTML = "<h4>Open</h4>";
+			}
+		}
+
+		
+
+	});
+
+	$(document).ready(function(){	
+		$(window).resize(function(){
+			offset = $("#imagehold").offset();
+			windowWidth = window.innerWidth;
+			divPos = {};
+			scale = imageDiv.width() / 4000;
+
+			for (var i = messages.length - 1; i >= 0; i--) {
+				messages[i].x1 = Math.round(messages[i].origX * scale);
+				messages[i].y1 = Math.round(messages[i].origY * scale);
+				messages[i].x2 = Math.round((messages[i].origX + 16) * scale);
+				messages[i].y2 = Math.round((messages[i].origY + 16) * scale);
+			}
+		});
+	});
+
+
+	var imageDiv = $("#imageDiv");
+	console.log(imageDiv.width() + imageDiv.height() );
+	var scale = imageDiv.width() / 4000;
+	console.log("scale: " + scale )
+
+	var messages = [];
+
+	function setUpMessages() {
+		var text =  '{ "messages" : [' +
+						'{ "x":0 , "y":0, "user":"testuser", "message":"This is the test message" }' + 
+					']}';
+ 		var obj = JSON.parse(text);
+
+ 		for (var i = 0; i < obj.messages.length; i++) { 
+ 			console.log(obj.messages[i]);
+
+ 			var message = {
+ 				origX: obj.messages[i].x,
+ 				origY: obj.messages[i].y,
+			    x1: Math.round(obj.messages[i].x * scale),
+			    y1: Math.round(obj.messages[i].y * scale),
+			    x2: Math.round((obj.messages[i].x + 16) * scale), 
+			    y2: Math.round((obj.messages[i].y + 15) * scale),  
+			    user: obj.messages[i].user,
+			    message: obj.messages[i].message
+			};
+
+			messages.push(message);
+		}
+		console.log(messages);
+	}
+	setUpMessages();
+
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
