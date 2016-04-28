@@ -1,21 +1,21 @@
 <div class="col-md-6 col-md-offset-3 well">
-    <form name="form" role="form">
+    <form name="form" ng-submit="contactCtrl.submit()" role="form">
         <legend>Contact Us</legend>
         <div class="form-group">
             <label for="inputName">Name</label>
-            <input type="text" class="form-control" name="inputName" required />
+            <input type="text" ng-model="contactCtrl.name" class="form-control" name="inputName" required />
         </div>
         <div class="form-group">
             <label for="inputEmail" class="control-label">Email ID</label>
-            <input type="email" class="form-control" name="inputEmail" required />
+            <input type="email" ng-model="contactCtrl.email" class="form-control" name="inputEmail" required />
         </div>
         <div class="form-group">
             <label for="inputSubject" class="control-label">Subject</label>
-            <input type="text" class="form-control" name="inputSubject" required />
+            <input type="text" ng-model="contactCtrl.subject" class="form-control" name="inputSubject" required />
         </div>
         <div class="form-group">
             <label for="inputMessage" class="control-label">Message</label>
-            <textarea class="form-control" name="inputMessage" rows="4" required></textarea>
+            <textarea class="form-control" ng-model="contactCtrl.message" name="inputMessage" rows="4" required></textarea>
         </div>
         <div class="form-group">
             <button name="submit" type="submit" class="btn btn-primary">Send</button>

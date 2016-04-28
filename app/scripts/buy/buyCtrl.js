@@ -44,7 +44,6 @@ angular.module('clientApp')
               "numOfMeals": $scope.meals
             }
             //Make call to mark X pixels as 'in purchase', and set message
-
         }
     };
 
