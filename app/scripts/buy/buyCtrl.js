@@ -39,7 +39,6 @@ angular.module('clientApp')
             $window.location.href = landingUrl;
 
             var payload = {
-              //
               "stripeToken": result.id,
               "numOfMeals": $scope.meals
             }
