@@ -1,28 +1,24 @@
 <div class="col-md-6 col-md-offset-3 well">
-    <form name="contactform" ng-submit="" role="form">
+    <form name="form" role="form">
         <legend>Contact Us</legend>
         <div class="form-group">
-            <label for="txt_name" class="control-label">Name</label>
-            <input class="form-control" name="txt_name" placeholder="" type="text" value="" />
-            <span class="text-danger"></span>
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" name="inputName" required />
         </div>
         <div class="form-group">
-            <label for="txt_email" class="control-label">Email ID</label>
-            <input class="form-control" name="txt_email" placeholder="" type="text" value="" />
-            <span class="text-danger"></span>
+            <label for="inputEmail" class="control-label">Email ID</label>
+            <input type="email" class="form-control" name="inputEmail" required />
         </div>
         <div class="form-group">
-            <label for="txt_subject" class="control-label">Subject</label>
-            <input class="form-control" name="txt_subject" placeholder="" type="text" value="" />
-            <span class="text-danger"></span>
+            <label for="inputSubject" class="control-label">Subject</label>
+            <input type="text" class="form-control" name="inputSubject" required />
         </div>
         <div class="form-group">
-            <label for="txt_msg" class="control-label">Message</label>
-            <textarea class="form-control" name="txt_msg" rows="4" placeholder=""></textarea>
-            <span class="text-danger"></span>
+            <label for="inputMessage" class="control-label">Message</label>
+            <textarea class="form-control" name="inputMessage" rows="4" required></textarea>
         </div>
         <div class="form-group">
-            <button name="submit" ng-disabled="form.$invalid" type="submit" class="btn btn-primary">Send</button>
+            <button name="submit" type="submit" class="btn btn-primary">Send</button>
         </div>
     </form>
 </div>

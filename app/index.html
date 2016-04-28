@@ -49,7 +49,7 @@ var isLoggedIn = function(){
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
+              <li ><a href="#/">Home</a></li>
               <li ><a ng-href="#/about">About</a></li>
               <li ><a ng-href="#/contact">Contact</a></li>
               <li ng-hide = "isLoggedIn()"><a ng-href="#/login">Login</a></li>
@@ -98,6 +98,8 @@ var isLoggedIn = function(){
     <script src="bower_components/angular-socialshare/dist/angular-socialshare.min.js"></script>
     <script src="bower_components/Chart.js/dist/Chart.js"></script>
     <script src="bower_components/ngGentle/ngGentle.js"></script>
+    <script src="bower_components/braintree-web/dist/braintree.js"></script>
+    <script src="bower_components/braintree-angular/dist/braintree-angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
