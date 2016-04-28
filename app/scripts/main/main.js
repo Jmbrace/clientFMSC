@@ -132,7 +132,7 @@ angular.module('clientApp')
       	};
 
       	top5Data = {
-            labels: ["State 1", "State 2", "State 3", "State 4", "State 5"],
+            labels: ["California", "Illinois", "New Yok", "Iowa", "Texas"],
             datasets: [{
                 label: 'Pixels',
                 backgroundColor: "blue",
