@@ -143,3 +143,7 @@
 	app.get('/scripts/confirmationPage/paymentConfirmation.html', function (req, res){
 	    res.sendfile('/app/scripts/confirmationPage/paymentConfirmation.html', {root: __dirname})
 	});
+
+		app.get('/scripts/profile/profile.html', function (req, res){
+	    res.sendfile('/app/scripts/profile/profile.html', {root: __dirname})
+	});
