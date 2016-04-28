@@ -1,4 +1,4 @@
-<style type="text/css"> 
+<style type="text/css">
   .form-group {
     margin: auto;
     padding-bottom: 1em;
@@ -16,7 +16,7 @@
     <div class="form-group">
       <label class="control-label">State</label>
         <div class="input-group">
-        <select ng-model="state" name="state" class="form-control selectpicker">
+        <select ng-model="state" name="state" class="form-control selectpicker" required>
           <option value="">Select your state</option>
           <option>Alabama</option>
           <option>Alaska</option>
@@ -30,7 +30,7 @@
           <option>Florida</option>
           <option>Georgia</option>
           <option>Hawaii</option>
-          <option>daho</option>
+          <option>Idaho</option>
           <option>Illinois</option>
           <option>Indiana</option>
           <option>Iowa</option>
@@ -62,7 +62,7 @@
           <option>South Dakota</option>
           <option>Tennessee</option>
           <option>Texas</option>
-          <option> Uttah</option>
+          <option>Utah</option>
           <option>Vermont</option>
           <option>Virginia</option>
           <option>Washington</option>
@@ -112,7 +112,7 @@ braintree.setup(clientToken, "dropin", {
   }
 </style>
 
-<!-- form 
+<!-- form
 <div class="col-md-6 col-md-offset-3 well">
   <legend>Donate</legend>
 	<form stripe-form="stripeCallback">
