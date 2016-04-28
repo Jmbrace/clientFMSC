@@ -8,7 +8,7 @@
  * Controller of the clientApp
  */
 angular.module('clientApp')
-  .controller('MainCtrl', ['authService' , '$rootScope', function (authService, $rootScope) {
+  .controller('MainCtrl', ['authService' , '$rootScope', '$http', function (authService, $rootScope, $http) {
 
   	var tooltipSpan = document.getElementById('tooltip-span');
 	var message = document.getElementById('message');
@@ -41,7 +41,7 @@ angular.module('clientApp')
 		for (var i = messages.length - 1; i >= 0; i--) {
 			if (messages[i].x1 <= divPos.left && messages[i].x2 >= divPos.left &&
 				messages[i].y1 <= divPos.top && messages[i].y2 >= divPos.top) {
-				message.innerHTML = "<h4>" + messages[i].user + "</h4><p>" + messages[i].message + "</p>";
+				message.innerHTML = "<p>" + messages[i].message + "</p>";
 				break;
 			}
 			else {
@@ -78,29 +78,31 @@ angular.module('clientApp')
 	var messages = [];
 
 	function setUpMessages() {
-		var text =  '{ "messages" : [' +
-						'{ "x":0 , "y":0, "user":"testuser", "message":"This is the test message" }' + 
-					']}';
- 		var obj = JSON.parse(text);
+		$http.get("https://fmsc-server.herokuapp.com/api/blocks/1").then(function(response) {
+			
+			console.log(response);
 
- 		for (var i = 0; i < obj.messages.length; i++) { 
- 			console.log(obj.messages[i]);
+			var obj = response.data;//JSON.parse(response);
 
- 			var message = {
- 				origX: obj.messages[i].x,
- 				origY: obj.messages[i].y,
-			    x1: Math.round(obj.messages[i].x * scale),
-			    y1: Math.round(obj.messages[i].y * scale),
-			    x2: Math.round((obj.messages[i].x + 16) * scale), 
-			    y2: Math.round((obj.messages[i].y + 15) * scale),  
-			    user: obj.messages[i].user,
-			    message: obj.messages[i].message
-			};
+	 		for (var i = 0; i < obj.blocks.length; i++) { 
+	 			console.log(obj.blocks[i]);
 
-			messages.push(message);
-		}
-		console.log(messages);
+	 			var message = {
+	 				origX: obj.blocks[i].leftXCrnr,
+	 				origY: obj.blocks[i].leftYCrnr,
+				    x1: Math.round(obj.blocks[i].leftXCrnr * scale),
+				    y1: Math.round(obj.blocks[i].leftYCrnr * scale),
+				    x2: Math.round((obj.blocks[i].leftXCrnr + 16) * scale), 
+				    y2: Math.round((obj.blocks[i].leftYCrnr + 15) * scale),  
+				    message: obj.blocks[i].message
+				};
+
+				messages.push(message);
+			}
+			console.log(messages);
+		});	
 	}
+
 	setUpMessages();
 
     this.awesomeThings = [

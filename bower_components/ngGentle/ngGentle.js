@@ -29,7 +29,7 @@ app.service('paragraph', function() {
             var badwords = [];
             for(var i =0 ; i <swearwords.length; i++) {
                 var swear = new RegExp(swearwords[i], 'g');
-                console.log(input.match(swear) ? true : false);
+                // console.log(input.match(swear) ? true : false);
                 if (input.match(swear)) {
                     badwords.push(swearwords[i]);
                 }
