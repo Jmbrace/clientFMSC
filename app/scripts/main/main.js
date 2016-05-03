@@ -215,6 +215,7 @@ angular.module('clientApp')
 
       	top5Data = {
             labels: stateNames.slice(0,5),
+
             datasets: [{
                 label: 'Pixels',
                 backgroundColor: "blue",

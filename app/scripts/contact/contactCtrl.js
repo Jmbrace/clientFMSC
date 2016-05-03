@@ -1,4 +1,4 @@
-angular.module('clientApp').controller('contactCtrl', ['apiService', function (apiService) {
+angular.module('clientApp').controller('contactCtrl', ['apiService', '$window', function (apiService, $window) {
     var self = this;
 
     self.name = "";
